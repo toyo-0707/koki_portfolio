@@ -45,7 +45,9 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="adminhome.php" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
+            <li class="nav-item"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
 	    </div>
@@ -84,13 +86,14 @@
          ?>
     			<div class='col-sm col-md-6 col-lg-4 ftco-animate'>
     				<div class='tour'>
-    					<a href='tours-single.php?tour_id=$tourID' class='img d-flex justify-content-center align-items-center' style='background-image: url(images/tour-1.jpg);'>
+    					<a href='admintours-single.php?tour_id=<?php echo $tourID?>' class='img d-flex justify-content-center align-items-center' style='background-image: url(images/tour-1.jpg);'>
+              <?php echo "<img src='upload/$image' class='mx-auto d-block img-fluid w-50'>"; ?>
     					</a>
     					<div class='text p-3 text-center'>
-    						<h3 class='mb-3'><a href='tours-single1.php'><?php echo $tour['tour_name'];?></a></h3>
+    						<h3 class='mb-3'><a href='admintours-single.php?tour_id=<?php echo $tourID?>'><?php echo $tour['tour_name'];?></a></h3>
     						<p><span class='price mr-2'><?php echo $tour['tour_price'];?></span></p>
     						<hr>
-    						<p class='pt-1'><a href='tours-single1.php' class='btn-custom'>View tour Details <span class='icon-long-arrow-right'></span></a></p>
+    						<p class='pt-1'><a href='admintours-single.php?tour_id=<?php echo $tourID?>' class='btn-custom'>View tour Details <span class='icon-long-arrow-right'></span></a></p>
     					</div>
     				</div>
     			</div>

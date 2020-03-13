@@ -38,9 +38,11 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="../index.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="tour.php" class="nav-link">Tours</a></li>
+	          <li class="nav-item"><a href="mytour.php" class="nav-link">MyTours</a></li>
 	          <li class="nav-item active"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
 	    </div>

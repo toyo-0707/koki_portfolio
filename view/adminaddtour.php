@@ -38,9 +38,11 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="adminhome.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="adminhome.php" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
+            <li class="nav-item"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
 	    </div>
@@ -53,7 +55,7 @@
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
           <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
           	<div class="text">
-	            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="../index.php">Home</a></span> <span>Tours</span></p>
+	            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="adminhome.php">Home</a></span> <span>AddTours</span></p>
 	            <h1 class="mb-4 bread">Tours</h1>
             </div>
           </div>
@@ -81,12 +83,18 @@
         </div>
         <div class="form-row">
           <div class="form-group col-12 mt-3">
-              <label for="uplodeFile" class="custom-file-label">Choose photo</label>
-              <input type="file" name="image" id="uplodeFile" class="custom-file-input">
+            <label for="tour_info">info</label>
+            <textarea class="form-control" name="tour_info" id="tour_info" rows="7" ></textarea>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-12 mt-3">
+        <form method="post" action="action.php" enctype="multipart/form-data" class="mt-5">
+          <input type='file' name="pic" class="form-control  ml-1 mt-3"><br>
+          <input type='submit' value='Upload' name='upload' class="btn btn-success btn-block mt-4 w-50 mx-auto">
+        </form>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-5">
           <button type="submit" name="addtour" id="" class="btn btn-danger form-control text-uppercase">Addtour</button>
 
           </div>

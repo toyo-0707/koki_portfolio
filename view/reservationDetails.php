@@ -1,3 +1,14 @@
+<?php
+ include "../action/reservationAction.php" ;
+ include "../action/tourAction.php" ;
+
+ $tour_id = $_GET['tour_id'];
+ $reservation_id = $_GET['reservation_id'];
+
+  $tour_detail = $tour->getSpecificTour($tour_id);
+  $reservation_detail = $reservation->getReservationDetails($reservation_id);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,16 +42,18 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="../index.php">Diving</a>
+	      <a class="navbar-brand" href="home.php">Diving</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="../index.php" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="tour.php" class="nav-link">Tours</a></li>
+	          <li class="nav-item active"><a href="adminhome.php" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
+            <li class="nav-item"><a href="mytour.php" class="nav-link">MyTours</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
 	    </div>
@@ -61,14 +74,14 @@
       </div>
     </div>
 
-
+<!-- 
     <section class="ftco-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
           	<div class="row">
           		<div class="col-md-12 ftco-animate">
-          			<h2 class="mb-4">Family tour</h2>
+          			<h2 class="mb-4">///h2>
           			<div class="single-slider owl-carousel">
           				<div class="item">
           					<div class="tour-img" style="background-image: url(images/tour-1.jpg);"></div>
@@ -81,36 +94,64 @@
           				</div>
           			</div>
               </div>
-              <section class="ftco-section  bg-light">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-12 text-center">
-          <h2 class="mb-5">Reservation completed!</h2>
-          <h5>4:15 - 5:15  </5>
-          <p>Pick Up</p>
-          <br>
-          <h5>9:00 </h5>
-          <h5>Diving   2 Dive</h5>
-          <br>
-          <h5>12:00</h5>
-          <h5>Lunch</h5>
-          <br>
-          <h5>14:00</h5>
-          <h5>Diving   1 Dive</h5>
-          <br>
-          <h5>18:00 - 19:00  </h5>
-          <h5>Hotel</h5>        
-          </div>
+              </div>
+          </div>  .col-md-8 
         </div>
       </div>
+    </section>  -->
 
-          		</div>
-          	</div>
-          </div> <!-- .col-md-8 -->
-        </div>
+    <div class="container">
+     <div class="row ">
+      <div class="card mx-auto col-12 my-5 border border-0">
+       <div class="card-body">
+         <div class="ftco-section  bg-light text-center">
+          <h2 class="mb-5">Tour Detaile</h2>
+          <table class="table table-striped table-hover w-75 mx-auto">
+          <thead class="thead thead-dark">
+            <th colspan=2>RESERVATION DETAILS</th>
+          </thead>
+            <tbody>
+            
+            <tr>
+              <th>Tour: </th>
+              <td><h5><?php echo $tour_detail['tour_name'];?></h3></td>
+            </tr>
+              <th>Reserve Date: </th>
+              <td><h5><?php echo $reservation_detail['reservation_day']?></h3></td>
+            </tr>
+            <tr>
+              <th>Name: </th>
+              <td><h5><?php echo $reservation_detail['reservation_name']?></h3></td>
+            </tr>
+            <tr>
+              <th>Email: </th>
+              <td><h5><?php echo $reservation_detail['reservation_email']?></h3></td>
+            </tr>
+            <tr>
+              <th>Phone Number: </th>
+              <td><h5><?php echo $reservation_detail['reservation_phone']?></h3></td>
+            </tr>
+            <tr>
+              <th>Address: </th>
+              <td><h5><?php echo $reservation_detail['reservation_address']?></h3></td>
+            </tr>
+            <tr>
+              <th>Rental: </th>
+              <td><h5><?php echo $reservation_detail['reservation_rental']?></h3></td>
+            </tr>
+            <tr>
+              <th>Price: </th>
+              <td><h5><?php echo $tour_detail['tour_price'];?></h3></td>
+            </tr>
+            
+            </tbody>
+          </table>
+         </div>  
+       </div>
       </div>
-    </section> <!-- .section -->
+     </div>
+    </div>
+
 
 
   
@@ -120,7 +161,7 @@
           <div class="col-md-12 text-center">
 
             <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
           </div>
         </div>
       </div>

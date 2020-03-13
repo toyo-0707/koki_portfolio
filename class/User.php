@@ -24,6 +24,17 @@
         return false;
       }
     }
+
+    public function getSpecificUser($user_id){
+      $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+
+      $result = $this->conn->query($sql);
+      if($result == false){
+        die("No record founf: ".$this->conn->error);
+      }else{
+        return $result->fetch_assoc();
+      }
+    }
      
    }
 ?>

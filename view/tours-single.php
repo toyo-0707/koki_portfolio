@@ -1,3 +1,11 @@
+<?php
+ include "../action/tourAction.php" ;
+
+ $tour_id = $_GET['tour_id'];
+
+$tour_detail = $tour->getSpecificTour($tour_id);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,14 +39,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="../index.php">Diving</a>
+	      <a class="navbar-brand" href="home.php">Diving</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="../index.php" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="tour.php" class="nav-link">Tours</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
 	        </ul>
@@ -68,7 +76,7 @@
           <div class="col-lg-12">
           	<div class="row">
           		<div class="col-md-12 ftco-animate">
-          			<h2 class="mb-4">Mactan Island</h2>
+          			<h2 class="mb-4"><?php echo $tour_detail['tour_name'];?></h2>
           			<div class="single-slider owl-carousel">
           				<div class="item">
           					<div class="tour-img" style="background-image: url(images/tour-1.jpg);"></div>
@@ -81,77 +89,76 @@
           				</div>
           			</div>
               </div>
-              <section class="ftco-section  bg-light">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-12 text-center">
-          <h2 class="mb-5">Schedule</h2>
-          <h5>4:15 - 5:15</h5>
-          <h5>Pick Up</h5>
-          <br>
-          <h5>9:00 </h5>
-          <h5>Diving   2 Dive</h5>
-          <br>
-          <h5>12:00</h5>
-          <h5>Lunch</h5>
-          <br>
-          <h5>14:00</h5>
-          <h5>Diving   1 Dive</h5>
-          <br>
-          <h5>18:00 - 19:00  </h5>
-          <h5>Hotel</h5>        
-          </div>
-        </div>
-      </div>
-   
-
-
-          <div class="col-md-12 tour-single mt-4 mb-5 ftco-animate">
-    
-        <h2 class="text-center">RESERVATION</h2>
-
-      <form action="" method="post">
-      <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="date" id="" class="p-4 form-control" placeholder="MM/DD/YY" required>
-          </div>
-      </div>
-      <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="name" id="" class="p-4 form-control" placeholder="NAME" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="email" id="" class="p-4 form-control" placeholder="EMAIL" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="number" name="phone_number" id="" class="p-4 form-control" placeholder="PHONE NUMBER" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="address" id="" class="p-4 form-control" placeholder="ADDRESS" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-          <button type="submit" name="submit" id="" class="btn btn-danger form-control text-uppercase">submit</button>
-
-          </div>
-        </div>
-      </form>
-
-          		</div>
-          	</div>
+              </div>
           </div> <!-- .col-md-8 -->
         </div>
       </div>
-    </section> <!-- .section -->
+    </section> 
 
+    <div class="container">
+     <div class="row ">
+      <div class="card mx-auto col-12  my-5 border border-0">
+       <div class="card-body">
+         <div class="ftco-section  bg-light text-center">
+          <h2 class="mb-5">Infomation</h2>
+          <h2 class="mb-4  w-50  mx-auto"><?php echo $tour_detail['tour_info'];?></h2>
+         </div>  
+       </div>
+      </div>
+     </div>
+    </div>
+   
+  <div class="col-md-12 tour-single mt-4 mb-5 ftco-animate w-50 mx-auto">
+    <h2 class="text-center">RESERVATION</h2>
+    <h2 class="text-center"><?php echo $tour_detail['tour_name'];?></h2>
+    <h2 class="text-center"><?php echo $tour_detail['tour_price'];?></h2>
+      <form action="../action/reservationAction.php" method="post">
+        <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <input type="date" name="reservation_day" id="" class="p-4 form-control" placeholder="MM/DD/YY" required>
+          </div>  
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <input type="text" name="reservation_name" id="" class="p-4 form-control" placeholder="NAME" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <input type="email" name="reservation_email" id="" class="p-4 form-control" placeholder="EMAIL" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <input type="number" name="reservation_phone" id="" class="p-4 form-control" placeholder="PHONE NUMBER" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <input type="text" name="reservation_address" id="" class="p-4 form-control" placeholder="ADDRESS" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <select class="form-control" name="reservation_rental" id="">
+            <option selected disabled>Rental?</option>
+              <option>Yes</option>
+              <option>No</option>
+          </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <input type="hidden" name="tour_id" id="" class="p-4 form-control" value="<?php echo $tour_detail['tour_id']?>" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 ">
+            <button type="submit" name="reservation" id="" class="btn btn-danger form-control text-uppercase">Reserve</button>
+          </div>
+        </div>
+      </form>
+  </div>
 
   
     <footer class="ftco-footer ftco-bg-dark ftco-section">

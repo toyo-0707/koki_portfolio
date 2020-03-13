@@ -1,3 +1,11 @@
+<?php
+ include "../action/reservationAction.php" ;
+
+ $user_id = $_SESSION['login_id'];
+
+ $reservation_list = $reservation->getMyReservations($user_id);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,16 +39,18 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="../index.php">Diving</a>
+	      <a class="navbar-brand" href="home.php">Diving</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="../index.php" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="tour.php" class="nav-link">Tours</a></li>
+          <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="tour.php" class="nav-link">Tours</a></li>
+	          <li class="nav-item active"><a href="mytour.php" class="nav-link">MyTours</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
 	    </div>
@@ -53,22 +63,22 @@
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
           <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
           	<div class="text">
-	            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.php">Home</a></span> <span class="mr-2"><a href="tour.php">Tour</a></span> <span>Tour Infomation</span></p>
-	            <h1 class="mb-4 bread">Tour Infomation</h1>
+	            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="home.php">Home</a></span> <span class="mr-2"><a href="tour.php">Tour</a></span> <span>MyTours</span></p>
+	            <h1 class="mb-4 bread">Your Tours</h1>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-
+<!-- 
     <section class="ftco-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
           	<div class="row">
           		<div class="col-md-12 ftco-animate">
-          			<h2 class="mb-4">Nalusuan Island</h2>
+          			<h2 class="mb-4"></h2>
           			<div class="single-slider owl-carousel">
           				<div class="item">
           					<div class="tour-img" style="background-image: url(images/tour-1.jpg);"></div>
@@ -81,76 +91,50 @@
           				</div>
           			</div>
               </div>
-              <section class="ftco-section  bg-light">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-12 text-center">
-          <h2 class="mb-5">Schedule</h2>
-          <h5>4:15 - 5:15</h5>
-          <h5>Pick Up</h5>
-          <br>
-          <h5>9:00 </h5>
-          <h5>Diving   2 Dive</h5>
-          <br>
-          <h5>12:00</h5>
-          <h5>Lunch</h5>
-          <br>
-          <h5>14:00</h5>
-          <h5>Diving   1 Dive</h5>
-          <br>
-          <h5>18:00 - 19:00  </h5>
-          <h5>Hotel</h5>        
-          </div>
+              </div>
+          </div>  .col-md-8 
         </div>
       </div>
-   
+    </section>  -->
 
-
-          <div class="col-md-12 tour-single mt-4 mb-5 ftco-animate">
-    
-        <h2 class="text-center">RESERVATION</h2>
-
-      <form action="" method="post">
-      <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="date" id="" class="p-4 form-control" placeholder="MM/DD/YY" required>
-          </div>
+    <div class="container">
+     <div class="row ">
+      <div class="card mx-auto col-12 my-5 border border-0">
+       <div class="card-body">
+         <div class="ftco-section  bg-light text-center">
+          <table class="table table-striped table-hover w-75 mx-auto">
+          <thead class="thead">
+            <tr class="bg-dark text-white">
+              <th colspan=4>Tours</th>
+            </tr>
+            <tr class="bg-secondary text-white">
+              <th>Tour Day</th>
+              <th>Tour Name</th>
+              <th>Tour Price</th>
+              <th></th>
+            </tr>
+          </thead>
+            <tbody>
+              <?php
+                foreach($reservation_list as $detail){
+              ?>
+                <tr>
+                  <td><?php echo $detail['reservation_day']?></td>
+                  <td><?php echo $detail['tour_name']?></td>
+                  <td><?php echo $detail['tour_price']?></td>
+                  <td><a href='reservationDetails.php?reservation_id=<?php echo $detail['reservation_id']?>&tour_id=<?php echo $detail['tour_id']?>' role='button' class='btn btn-outline-primary'>Detail</a></td>
+                </tr>
+              <?php
+                }
+              ?>
+            </tbody>
+          </table>
+         </div>  
+       </div>
       </div>
-      <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="name" id="" class="p-4 form-control" placeholder="NAME" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="email" id="" class="p-4 form-control" placeholder="EMAIL" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="number" name="phone_number" id="" class="p-4 form-control" placeholder="PHONE NUMBER" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="address" id="" class="p-4 form-control" placeholder="ADDRESS" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-          <button type="submit" name="submit" id="" class="btn btn-danger form-control text-uppercase">submit</button>
+     </div>
+    </div>
 
-          </div>
-        </div>
-      </form>
-
-          		</div>
-          	</div>
-          </div> <!-- .col-md-8 -->
-        </div>
-      </div>
-    </section> <!-- .section -->
 
 
   
@@ -160,7 +144,7 @@
           <div class="col-md-12 text-center">
 
             <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
           </div>
         </div>
       </div>

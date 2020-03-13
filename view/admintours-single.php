@@ -46,9 +46,11 @@ $tour_detail = $tour->getSpecificTour($tour_id);
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="../index.php" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="tour.php" class="nav-link">Tours</a></li>
+          <li class="nav-item active"><a href="adminhome.php" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
+            <li class="nav-item active"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
 	    </div>
@@ -89,76 +91,25 @@ $tour_detail = $tour->getSpecificTour($tour_id);
           				</div>
           			</div>
               </div>
-              <section class="ftco-section  bg-light">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-12 text-center">
-          <h2 class="mb-5">Schedule</h2>
-          <h5>4:15 - 5:15</h5>
-          <h5>Pick Up</h5>
-          <br>
-          <h5>9:00 </h5>
-          <h5>Diving   2 Dive</h5>
-          <br>
-          <h5>12:00</h5>
-          <h5>Lunch</h5>
-          <br>
-          <h5>14:00</h5>
-          <h5>Diving   1 Dive</h5>
-          <br>
-          <h5>18:00 - 19:00  </h5>
-          <h5>Hotel</h5>        
-          </div>
-        </div>
-      </div>
-   
-
-
-          <div class="col-md-12 tour-single mt-4 mb-5 ftco-animate">
-    
-        <h2 class="text-center">RESERVATION</h2>
-
-      <form action="" method="post">
-      <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="date" id="" class="p-4 form-control" placeholder="MM/DD/YY" required>
-          </div>
-      </div>
-      <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="name" id="" class="p-4 form-control" placeholder="NAME" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="email" id="" class="p-4 form-control" placeholder="EMAIL" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="number" name="phone_number" id="" class="p-4 form-control" placeholder="PHONE NUMBER" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-            <input type="text" name="address" id="" class="p-4 form-control" placeholder="ADDRESS" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-12 mt-3">
-          <button type="submit" name="submit" id="" class="btn btn-danger form-control text-uppercase">submit</button>
-
-          </div>
-        </div>
-      </form>
-
-          		</div>
-          	</div>
+              </div>
           </div> <!-- .col-md-8 -->
         </div>
       </div>
-    </section> <!-- .section -->
+    </section> 
+
+    <div class="container">
+     <div class="row ">
+      <div class="card mx-auto col-12  my-5 border border-0">
+       <div class="card-body">
+         <div class="ftco-section  bg-light text-center">
+          <h2 class="mb-5">Infomation</h2>
+          <h2 class="mb-4  w-50  mx-auto"><?php echo $tour_detail['tour_info'];?></h2>
+         </div>  
+       </div>
+      </div>
+     </div>
+    </div>
+
 
 
   
@@ -168,7 +119,7 @@ $tour_detail = $tour->getSpecificTour($tour_id);
           <div class="col-md-12 text-center">
 
             <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
           </div>
         </div>
       </div>

@@ -2,13 +2,13 @@
    require_once 'Database.php';
 
    class Tour extends Database{
-     public function createTour($tour_name, $tour_price){
-       $sql = "INSERT INTO tours(tour_name, tour_price) VALUES ('$tour_name', '$tour_price')";
+     public function createTour($tour_name, $tour_price, $tour_info){
+       $sql = "INSERT INTO tours(tour_name, tour_price, tour_info) VALUES ('$tour_name', '$tour_price', '$tour_info')";
 
        $result = $this->conn->query($sql);
 
        if($result == false){
-         die("CANNOT ADD USERS: ".$this->conn->error);
+         die("CANNOT ADD TOURS: ".$this->conn->error);
        }else{
        }
      }
@@ -35,5 +35,40 @@
         return $result->fetch_assoc();
       }
     }
+    public function insertToTable($picture){
+      $sql= "UPDATE tours SET tour_picture = '$picture' WHERE tour_id = '2'";
+
+      if($this->conn->query($sql)){
+          //successful in inserting the picture
+          return 1;
+      }else{
+          echo "Not saved " .$this->conn->error;
+          return 0;
+      }
+  }
+  public function showAllImages(){
+    $sql = "SELECT tour_picture FROM tours";
+
+    $rows = array();
+
+    $result = $this->conn->query($sql);
+    if ($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+}
+
+public function searchSpecificImage($tour_id){
+    $sql = "SELECT tour_picture FROM tours WHERE tour_id = '$tour_id'";
+    $result = $this->conn->query($sql);
+
+    $row = $result->fetch_assoc();
+
+    return $row;
+}
+
 
     }
