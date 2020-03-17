@@ -1,11 +1,14 @@
 <?php
- include "../action/tourAction.php" ;
-?>
+  include '../action/tourAction.php';
 
+  $tour_id = $_GET['tour_id'];
+
+  $tour_detail = $tour->getSpecificTour($tour_id);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Diving Tour</title>
+    <title>Diving Tours</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -42,8 +45,8 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="adminhome.php" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
+          <li class="nav-item"><a href="adminhome.php" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
             <li class="nav-item"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
@@ -52,59 +55,60 @@
 	  </nav>
     <!-- END nav -->
 
-    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url('../upload/cebu-1.jpg');">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-12 ftco-animate text-center">
-          	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Diving Management</h1>
-	            <h2>Diving Tours</h2>
+    <div class="hero-wrap" style="background-image: url('../upload/cebu-1.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+          	<div class="text">
+	            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="adminhome.php">Home</a></span> <span>EditTours</span></p>
+	            <h1 class="mb-4 bread">Tours</h1>
             </div>
           </div>
         </div>
-        </div>
       </div>
-    </section>
+    </div>
 
 
-    <section class="ftco-section bg-light">
-    	<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Our Tours</h2>
+    <div class="container">
+  <div class="card mx-auto w-50 my-5 border border-0">
+    <div class="card-header bg-white text-dark border-0">
+      <h2 class="text-center">editTour</h2>
+    </div>
+    <div class="card-body">
+      <form action="../action/tourAction.php" enctype="multipart/form-data" method="post">
+      <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <input type="text" name="newtour_name" id="" class="p-4 form-control"value="<?php echo $tour_detail['tour_name'];?>" required>
           </div>
-        </div>    		
-    		<div class="row">
-        <?php
-      $tourlist = $tour->getTours();
-      foreach($tourlist as $tour){
-        $tourID = $tour['tour_id'];
-        $image = $tour['tour_picture'];
-         ?>
-    			<div class='col-sm col-md-6 col-lg-4 ftco-animate'>
-    				<div class='tour'>
-    					<a href='admintours-single.php?tour_id=<?php echo $tourID?>' class='img d-flex justify-content-center align-items-center'>
-              <?php echo "<img src='../upload/$image' class='img-fluid'>"; ?>
-    					</a>
-    					<div class='text p-3 text-center'>
-    						<h3 class='mb-3'><a href='admintours-single.php?tour_id=<?php echo $tourID?>'><?php echo $tour['tour_name'];?></a></h3>
-    						<p><span class='price mr-2'><?php echo $tour['tour_price'];?></span></p>
-    						<hr>
-    						<p class='pt-1'><a href='admintours-single.php?tour_id=<?php echo $tourID?>' class='btn-custom'>View tour Details <span class='icon-long-arrow-right'></span></a></p>
-                <td><a href='adminedittour.php?tour_id=<?php echo $tourID?>' role='button' class='btn btn-outline-success'>Edit</a></td>
-                <td><a href='admindeletetour.php?tour_id=<?php echo $tourID?>' role='button' class='btn btn-outline-danger'>Delete</a></td>
-    					</div>
-    				</div>
-    			</div>
-          <?php }?>
-    		</div>
-    	</div>
-    </section>
+        </div>
+      <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <input type="text" name="newtour_price" id="" class="p-4 form-control" value="<?php echo $tour_detail['tour_price'];?>"  required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-3">
+            <label for="tour_info">info</label>
+            <textarea class="form-control" name="newtour_info" id="" rows="7" ><?php echo $tour_detail['tour_info'];?> </textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <input type="file" name="pic" class="form-control  ml-1 mt-3"><br>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-12 mt-4">
+          <button type="submit" name="update" id="" class="btn btn-success form-control text-uppercase">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+    			
 
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+		<footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">

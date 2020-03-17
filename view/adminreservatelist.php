@@ -3,7 +3,7 @@
  include "../action/tourAction.php" ;
 
  $reservate_lists = $reservation->getReservations();
- $tour_lists =$tour->getTours();
+//  $tour_lists =$tour->getTours();
 ?>
 
 <!DOCTYPE html>
@@ -49,14 +49,13 @@
           <li class="nav-item"><a href="adminhome.php" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
             <li class="nav-item active"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url('../upload/cebu-1.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
@@ -102,30 +101,24 @@
        <div class="card-body">
          <div class="ftco-section  bg-light text-center">
           <h2 class="mb-5">RESERVATE LIST </h2>
-     
            
           <?php
 
-foreach($tour_lists as $tour){ ?>
-              <table class="table table table-hover w-75 mx-auto">
-              <h3>LIST</h3>
-           <tr>
-              <th>Tour: </th>
-              <td><h5><?php echo $tour['tour_name'];?></h3></td>
-            </tr>
-            <tr>
-              <th>Price: </th>
-              <td><h5><?php echo $tour['tour_price'];?></h3></td>
-            </tr>
-           <?php } ?>   
-            <?php
-
-      foreach($reservate_lists as $lists){ ?>
-   
-    
+            if($reservate_lists){
+            foreach($reservate_lists as $lists){ 
+              ?>
+            <table class="table table-striped table-hover w-75 mx-auto mt-4">
 
             <tbody>
-            <table class="table table table-hover w-75 mx-auto">
+            <tr class="bg-dark text-white">
+              <th>Tour Name: </th>
+              <th><?php echo $lists['tour_name'];?></th>
+            </tr>
+            <tr class="bg-danger text-white">
+              <th>Tour Price: </th>
+              <th><?php echo $lists['tour_price']?></th>
+            </tr>
+            <tr>
               <th>Reserve Date: </th>
               <td><h5><?php echo $lists['reservation_day']?></h3></td>
             </tr>
@@ -149,11 +142,15 @@ foreach($tour_lists as $tour){ ?>
               <th>Rental: </th>
               <td><h5><?php echo $lists['reservation_rental']?></h3></td>
             </tr>
-          
-            <br>
-            <?php } ?>       
             </tbody>
           </table>
+            <?php 
+            }
+          }else{
+            echo "<tr>
+              <td>NO RECORDS FOUND</td>
+            </tr>";
+          }?>       
          </div>  
        </div>
       </div>

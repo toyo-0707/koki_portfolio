@@ -31,7 +31,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="../index.php">Diving</a>
+	      <a class="navbar-brand" href="adminhome.php">Diving</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -41,7 +41,6 @@
           <li class="nav-item"><a href="adminhome.php" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
             <li class="nav-item"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
@@ -49,7 +48,7 @@
 	  </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url('../upload/cebu-1.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
@@ -70,7 +69,7 @@
       <h2 class="text-center">AddTour</h2>
     </div>
     <div class="card-body">
-      <form action="../action/tourAction.php" method="post">
+      <form action="../action/tourAction.php" enctype="multipart/form-data" method="post">
       <div class="form-row">
           <div class="form-group col-12 mt-3">
             <input type="text" name="tour_name" id="" class="p-4 form-control" placeholder="TOUR NAME" required>
@@ -88,15 +87,11 @@
           </div>
         </div>
         <div class="form-row">
-        <form method="post" action="action.php" enctype="multipart/form-data" class="mt-5">
-          <input type='file' name="pic" class="form-control  ml-1 mt-3"><br>
-          <input type='submit' value='Upload' name='upload' class="btn btn-success btn-block mt-4 w-50 mx-auto">
-        </form>
+          <input type="file" name="pic" class="form-control  ml-1 mt-3"><br>
         </div>
         <div class="form-row">
-          <div class="form-group col-12 mt-5">
-          <button type="submit" name="addtour" id="" class="btn btn-danger form-control text-uppercase">Addtour</button>
-
+          <div class="form-group col-12 mt-4">
+          <button type="submit" name="addtour" id="" class="btn btn-success form-control text-uppercase">Addtour</button>
           </div>
         </div>
       </form>

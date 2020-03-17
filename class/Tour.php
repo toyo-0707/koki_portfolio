@@ -2,16 +2,18 @@
    require_once 'Database.php';
 
    class Tour extends Database{
-     public function createTour($tour_name, $tour_price, $tour_info){
-       $sql = "INSERT INTO tours(tour_name, tour_price, tour_info) VALUES ('$tour_name', '$tour_price', '$tour_info')";
-
+     public function createTour($tour_name, $tour_price, $tour_info, $picture){
+       $sql = "INSERT INTO tours(tour_name, tour_price, tour_info, tour_picture) VALUES ('$tour_name', '$tour_price', '$tour_info', '$picture')";
+      // echo $sql;
        $result = $this->conn->query($sql);
-
+       header("Location: ../view/adminhome.php");
        if($result == false){
          die("CANNOT ADD TOURS: ".$this->conn->error);
        }else{
+         return 1;
        }
      }
+
      public function getTours(){
       $sql = "SELECT *FROM tours";
       $result = $this->conn->query($sql);
@@ -68,6 +70,32 @@ public function searchSpecificImage($tour_id){
     $row = $result->fetch_assoc();
 
     return $row;
+}
+public function editTour($tour_id, $newtour_name, $newtour_price, $newtour_info, $newtour_picture){
+  $sql = "UPDATE tours
+          SET tour_name = '$newtour_name',
+              tour_price = '$newtour_price',
+              tour_info = '$newtour_info',
+              tour_picture = '$newtour_picture'
+
+          WHERE tour_id = '$tour_id';    
+  ";
+  $result = $this->conn->query($sql);
+  if($result == false){
+    die("Cannot Update: ".$this->conn->error);
+  }else{
+    header("Location: ../view/adminhome.php");
+  }
+}
+public function deleteTour($tour_id){
+  $sql = "DELETE FROM tours WHERE tour_id = '$tour_id'";
+  $result = $this->conn->query($sql);
+  
+  if($result == false){
+    die("Cannot Delete: ".$this->conn->error);
+  }else{
+    header("Location: ../view/adminhome.php");
+  }
 }
 
 

@@ -67,7 +67,7 @@
     </div>
 
 
-		<section class="ftco-section bg-light">
+    <section class="ftco-section bg-light">
     	<div class="container">
 				<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -79,10 +79,12 @@
       $tourlist = $tour->getTours();
       foreach($tourlist as $tour){
         $tourID = $tour['tour_id'];
+        $image = $tour['tour_picture'];
          ?>
     			<div class='col-sm col-md-6 col-lg-4 ftco-animate'>
     				<div class='tour'>
-    					<a href='tours-single.php?tour_id=<?php echo $tourID?>' class='img d-flex justify-content-center align-items-center' style='background-image: url(images/tour-1.jpg);'>
+    					<a href='tours-single.php?tour_id=<?php echo $tourID?>' class='img d-flex justify-content-center align-items-center'>
+              <?php echo "<img src='../upload/$image' class='img-fluid'>"; ?>
     					</a>
     					<div class='text p-3 text-center'>
     						<h3 class='mb-3'><a href='tours-single.php?tour_id=<?php echo $tourID?>'><?php echo $tour['tour_name'];?></a></h3>

@@ -116,6 +116,7 @@
           </thead>
             <tbody>
               <?php
+              if($reservation_list){
                 foreach($reservation_list as $detail){
               ?>
                 <tr>
@@ -126,6 +127,11 @@
                 </tr>
               <?php
                 }
+              }else{
+                echo "<tr>
+                      <td colspan=4>NO RECORDS FOUND</td>
+                </tr>";
+              }
               ?>
             </tbody>
           </table>

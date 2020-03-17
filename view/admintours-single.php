@@ -49,7 +49,6 @@ $tour_detail = $tour->getSpecificTour($tour_id);
           <li class="nav-item active"><a href="adminhome.php" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
             <li class="nav-item active"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
@@ -57,7 +56,7 @@ $tour_detail = $tour->getSpecificTour($tour_id);
 	  </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url(../upload/cebu-1.jpg);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">

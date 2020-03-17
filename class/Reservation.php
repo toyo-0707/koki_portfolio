@@ -27,7 +27,7 @@
       }
      }
      public function getReservations(){
-      $sql = "SELECT *FROM reservations";
+      $sql = "SELECT *FROM reservations INNER JOIN tours ON tours.tour_id = reservations.tour_id";
       $result = $this->conn->query($sql);
 
       $rows = array();
@@ -52,7 +52,7 @@
         }
         return $rows;
       }else{
-        die("ERROR IN GETTING YOUR RESERVATIONS: ".$this->conn->error);
+        return false;
       }
     }
 
