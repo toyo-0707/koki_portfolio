@@ -31,12 +31,24 @@
     $newtour_name = $_POST['new_tour_name'];
     $newtour_price = $_POST['new_tour_price'];
     $newtour_info = $_POST['new_tour_info'];
-    $newtour_picture = $_FILES['pic']['name'];
-    $target_dir = "../upload/"; //folder in your computer where you will place the picture
-    $target_file = $target_dir . basename($_FILES["pic"]["name"]);
 
-    $tour->editTour($tour_id, $newtour_name, $newtour_price, $newtour_info, $newtour_picture);
-  
+    if(empty($_FILES['pic']['name'])){
+      $newtour_picture = $_POST['old_tour_picture'];
+    }else{
+      $newtour_picture = $_FILES['pic']['name'];
+      $target_dir = "../upload/"; //folder in your computer where you will place the picture
+      $target_file = $target_dir . basename($_FILES["pic"]["name"]);
+    }
+
+
+    // echo $tour_id, $newtour_name, $newtour_price, $newtour_info, $newtour_picture;
+    $update_tour = $tour->editTour($tour_id, $newtour_name, $newtour_price, $newtour_info, $newtour_picture);
+
+    if($update_tour){
+      move_uploaded_file($_FILES['pic']['tmp_name'],$target_file);
+    }else{
+      echo "Error";   
+    }
 }
 
   

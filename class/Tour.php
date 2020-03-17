@@ -80,6 +80,7 @@ public function editTour($tour_id, $newtour_name, $newtour_price, $newtour_info,
 
           WHERE tour_id = '$tour_id';    
   ";
+  // echo $sql;
   $result = $this->conn->query($sql);
   if($result == false){
     die("Cannot Update: ".$this->conn->error);

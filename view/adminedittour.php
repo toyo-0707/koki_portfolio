@@ -79,22 +79,24 @@
       <form action="../action/tourAction.php" enctype="multipart/form-data" method="post">
       <div class="form-row">
           <div class="form-group col-12 mt-3">
-            <input type="text" name="newtour_name" id="" class="p-4 form-control"value="<?php echo $tour_detail['tour_name'];?>" required>
+            <input type="text" name="new_tour_name" id="" class="p-4 form-control"value="<?php echo $tour_detail['tour_name'];?>" required>
           </div>
         </div>
       <div class="form-row">
           <div class="form-group col-12 mt-3">
-            <input type="text" name="newtour_price" id="" class="p-4 form-control" value="<?php echo $tour_detail['tour_price'];?>"  required>
+            <input type="text" name="new_tour_price" id="" class="p-4 form-control" value="<?php echo $tour_detail['tour_price'];?>"  required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-12 mt-3">
             <label for="tour_info">info</label>
-            <textarea class="form-control" name="newtour_info" id="" rows="7" ><?php echo $tour_detail['tour_info'];?> </textarea>
+            <textarea class="form-control" name="new_tour_info" id="" rows="7"><?php echo $tour_detail['tour_info'];?> </textarea>
           </div>
         </div>
         <div class="form-row">
           <input type="file" name="pic" class="form-control  ml-1 mt-3"><br>
+          <input type="hidden" name="tour_id" value="<?php echo $tour_id?>">
+          <input type="hidden" name="old_tour_picture" value="<?php echo $tour_detail['tour_picture']?>">
         </div>
         <div class="form-row">
           <div class="form-group col-12 mt-4">
