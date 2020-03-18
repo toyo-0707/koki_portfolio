@@ -4,6 +4,8 @@
  $tour_id = $_GET['tour_id'];
 
 $tour_detail = $tour->getSpecificTour($tour_id);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +51,7 @@ $tour_detail = $tour->getSpecificTour($tour_id);
 	          <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="tour.php" class="nav-link">Tours</a></li>
 	          <li class="nav-item"><a href="mytour.php" class="nav-link">MyTours</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+	          <!-- <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li> -->
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
@@ -57,7 +59,7 @@ $tour_detail = $tour->getSpecificTour($tour_id);
 	  </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url('../upload/bg_2.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
@@ -79,19 +81,26 @@ $tour_detail = $tour->getSpecificTour($tour_id);
           	<div class="row">
           		<div class="col-md-12 ftco-animate">
           			<h2 class="mb-4"><?php echo $tour_detail['tour_name'];?></h2>
-          			<div class="single-slider owl-carousel">
+          			<!-- <div class="single-slider owl-carousel">
+          				<div class="item"> -->
+                  <?php
+                    $tourlist = $tour->getTours();
+                    foreach($tourlist as $tour){
+                      $tourID = $tour['tour_id'];
+                      $image = $tour['tour_picture'];
+                      ?>
+          					<div class="tour-img"><img src="../upload/<?php echo $tour['tour_picture'];?>"</div>
+                    <?php }?>
+          				<!-- </div>
           				<div class="item">
-          					<div class="tour-img" style="background-image: url(images/tour-1.jpg);"></div>
-          				</div>
-          				<div class="item">
-          					<div class="tour-img" style="background-image: url(images/tour-2.jpg);"></div>
+          					<div class="tour-img" ></div>
           				</div>
           				<div class="item">
           					<div class="tour-img" style="background-image: url(images/tour-3.jpg);"></div>
           				</div>
-          			</div>
+          			</div> -->
               </div>
-              </div>
+              </div>        
           </div> <!-- .col-md-8 -->
         </div>
       </div>

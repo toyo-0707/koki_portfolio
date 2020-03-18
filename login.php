@@ -38,7 +38,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(view/images/bg_1.jpg);">
+      <div class="slider-item" style="background-image:url(upload/cebu-1.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -54,7 +54,7 @@
     </section>
 
     <form action="action/userAction.php" method="post">
-    <div class="card w-75 mx-auto mt-5 mb-5 ">
+    <div class="card w-50 mx-auto mt-5 mb-5 ">
       <div class="card-header bg-primary text-white ">
       <h1 class="display-4 ml-3 py-5">Welcome to Diving</h1>
       </div>

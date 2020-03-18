@@ -45,7 +45,6 @@
 	          <li class="nav-item active"><a href="home.php" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="tour.php" class="nav-link">Tours</a></li>
             <li class="nav-item"><a href="mytour.php" class="nav-link">MyTours</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
@@ -54,7 +53,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
+      <div class="slider-item" style="background-image:url(../upload/bg_1.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -174,14 +173,14 @@
          ?>
     			<div class='col-sm col-md-6 col-lg-4 ftco-animate'>
     				<div class='tour'>
-    					<a href='admintours-single.php?tour_id=<?php echo $tourID?>' class='img d-flex justify-content-center align-items-center'>
+    					<a href='tours-single.php?tour_id=<?php echo $tourID?>' class='img d-flex justify-content-center align-items-center'>
               <?php echo "<img src='../upload/$image' class='img-fluid'>"; ?>
     					</a>
     					<div class='text p-3 text-center'>
-    						<h3 class='mb-3'><a href='admintours-single.php?tour_id=<?php echo $tourID?>'><?php echo $tour['tour_name'];?></a></h3>
+    						<h3 class='mb-3'><a href='tours-single.php?tour_id=<?php echo $tourID?>'><?php echo $tour['tour_name'];?></a></h3>
     						<p><span class='price mr-2'><?php echo $tour['tour_price'];?></span></p>
     						<hr>
-    						<p class='pt-1'><a href='admintours-single.php?tour_id=<?php echo $tourID?>' class='btn-custom'>View tour Details <span class='icon-long-arrow-right'></span></a></p>
+    						<p class='pt-1'><a href='tours-single.php?tour_id=<?php echo $tourID?>' class='btn-custom'>View tour Details <span class='icon-long-arrow-right'></span></a></p>
     					</div>
     				</div>
     			</div>
@@ -196,40 +195,40 @@
       <div class="container-fluid">
         <div class="row no-gutters justify-content-center pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2><span>Instagram</span></h2>
+            <h2><span>Gallery</span></h2>
           </div>
         </div>
         <div class="row no-gutters">
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(images/insta-1.jpg);">
+            <a href="../upload/tour-1.jpg" class="insta-img image-popup" style="background-image: url(../upload/tour-1.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(images/insta-2.jpg);">
+            <a href="../upload/tour-2.jpg" class="insta-img image-popup" style="background-image: url(../upload/tour-2.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(images/insta-3.jpg);">
+            <a href="../upload/tour-3.jpg" class="insta-img image-popup" style="background-image: url(../upload/tour-3.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(images/insta-4.jpg);">
+            <a href="../upload/tour-4.jpg" class="insta-img image-popup" style="background-image: url(../upload/tour-4.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-5.jpg" class="insta-img image-popup" style="background-image: url(images/insta-5.jpg);">
+            <a href="../upload/tour-5.jpg" class="insta-img image-popup" style="background-image: url(../upload/tour-5.jpg);">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>

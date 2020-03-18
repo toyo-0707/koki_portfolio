@@ -44,7 +44,6 @@
 	          <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="tour.php" class="nav-link">Tours</a></li>
 	          <li class="nav-item"><a href="mytour.php" class="nav-link">MyTours</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
@@ -52,7 +51,7 @@
 	  </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url('../upload/bg_2.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
