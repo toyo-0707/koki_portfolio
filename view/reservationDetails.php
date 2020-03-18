@@ -146,7 +146,8 @@
             
             </tbody>
           </table>
-          <a href="mytour.php" role='button' class='btn btn-outline-primary'>Back</a>
+          <a href="mytour.php" role='button' class='btn btn-outline-primary mr-3 mt-3'>Back</a>
+          <a href='reservationdelete.php?reservation_id=<?php echo $reservation_id?>' role='button' class='btn btn-outline-danger mt-3'>Cancel</a>
          </div>  
        </div>
       </div>

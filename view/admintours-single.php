@@ -4,7 +4,7 @@
  $tour_id = $_GET['tour_id'];
 
 $tour_detail = $tour->getSpecificTour($tour_id);
-
+session_start();
 if(empty($_SESSION['status']=='A')){
   session_unset();
   session_destroy();
@@ -53,9 +53,9 @@ if(empty($_SESSION['status']=='A')){
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="adminhome.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="adminhome.php" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="adminaddtour.php" class="nav-link">AddTours</a></li>
-            <li class="nav-item active"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
+            <li class="nav-item"><a href="adminreservatelist.php" class="nav-link">UserTour</a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link text-danger ">  Logout</a><li>
 	        </ul>
 	      </div>
@@ -85,19 +85,32 @@ if(empty($_SESSION['status']=='A')){
           	<div class="row">
           		<div class="col-md-12 ftco-animate">
           			<h2 class="mb-4"><?php echo $tour_detail['tour_name'];?></h2>
-          			<div class="single-slider owl-carousel">
+          			<!-- <div class="single-slider owl-carousel">
+          				<div class="item"> -->
+                   <?php
+                   // $tourlist = $tour->getTours();
+                    //foreach($tourlist as $tour){
+                    //  $tourID = $tour['tour_id'];
+                   //   $image = $tour['tour_picture'];
+                  ?> 
+          					
+                    <div class="container text-center">
+                      <img src="../upload/<?php echo $tour_detail['tour_picture'];?>" class="img-fluid">
+                    </div>
+                    
+                  <?php 
+                    //}
+                  ?>
+          				<!-- </div>
           				<div class="item">
-          					<div class="tour-img" style="background-image: url(images/tour-1.jpg);"></div>
-          				</div>
-          				<div class="item">
-          					<div class="tour-img" style="background-image: url(images/tour-2.jpg);"></div>
+          					<div class="tour-img" ></div>
           				</div>
           				<div class="item">
           					<div class="tour-img" style="background-image: url(images/tour-3.jpg);"></div>
           				</div>
-          			</div>
+          			</div> -->
               </div>
-              </div>
+              </div>        
           </div> <!-- .col-md-8 -->
         </div>
       </div>

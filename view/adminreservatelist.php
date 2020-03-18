@@ -5,11 +5,12 @@
  $reservate_lists = $reservation->getReservations();
 //  $tour_lists =$tour->getTours();
 
-if(empty($_SESSION['status']=='A')){
-  session_unset();
-  session_destroy();
-  header('Location: ../login.php');
-  die;
+ 
+if(empty($_SESSION['status']=='A')){ 
+ session_unset();
+ session_destroy();
+ header('Location: ../login.php');
+ die;
 }
 ?>
 
@@ -149,8 +150,9 @@ if(empty($_SESSION['status']=='A')){
               <th>Rental: </th>
               <td><h5><?php echo $lists['reservation_rental']?></h3></td>
             </tr>
-            </tbody>
+            </tbody>         
           </table>
+          
             <?php 
             }
           }else{

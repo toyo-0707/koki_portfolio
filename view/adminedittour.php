@@ -4,6 +4,7 @@
   $tour_id = $_GET['tour_id'];
 
   $tour_detail = $tour->getSpecificTour($tour_id);
+  session_start();
 
   if(empty($_SESSION['status']=='A')){
     session_unset();

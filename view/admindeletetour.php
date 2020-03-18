@@ -1,10 +1,11 @@
 
 <?php
 
-include '../action/tourAction.php';
+include '../action/reservationAction.php';
 
-$tour_id = $_GET['tour_id'];
+$tour_id = $_GET['reservation_id'];
 
-$tour->deleteTour($tour_id);
+
+$tour->deleteReservation($reservation_id);
 
 ?>

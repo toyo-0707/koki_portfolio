@@ -55,8 +55,8 @@
 
     <form action="action/userAction.php" method="post">
     <div class="card w-50 mx-auto mt-5 mb-5 ">
-      <div class="card-header bg-primary text-white ">
-      <h1 class="display-4 ml-3 py-5">Welcome to Diving</h1>
+      <div class="card-header bg-info  ">
+      <h1 class="display-4 ml-3 py-5 text-white">Welcome to Diving</h1>
       </div>
       <div class="card-body py-5 ">
         <small>Username</small>
@@ -66,7 +66,7 @@
         <input type="password" name ="password" class="form-control mb-3">
 
         <small><a href="view/register.php">Create Account</a></small>
-        <button type="submit" class="btn btn-primary float-right" name="login">Log In</button>
+        <button type="submit" class="btn btn-info float-right" name="login">Log In</button>
       </div>
     </div>
   </form>
