@@ -4,6 +4,13 @@
   $tour_id = $_GET['tour_id'];
 
   $tour_detail = $tour->getSpecificTour($tour_id);
+
+  if(empty($_SESSION['status']=='A')){
+    session_unset();
+    session_destroy();
+    header('Location: ../login.php');
+    die;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

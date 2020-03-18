@@ -83,19 +83,19 @@ $tour_detail = $tour->getSpecificTour($tour_id);
           			<h2 class="mb-4"><?php echo $tour_detail['tour_name'];?></h2>
           			<!-- <div class="single-slider owl-carousel">
           				<div class="item"> -->
-                  <?php
-                    $tourlist = $tour->getTours();
-                    foreach($tourlist as $tour){
-                      $tourID = $tour['tour_id'];
-                      $image = $tour['tour_picture'];
-                  ?>
+                   <?php
+                   // $tourlist = $tour->getTours();
+                    //foreach($tourlist as $tour){
+                    //  $tourID = $tour['tour_id'];
+                   //   $image = $tour['tour_picture'];
+                  ?> 
           					
-                    <div class="container">
-                      <img src="../upload/<?php echo $tour['tour_picture'];?>" class="img-fluid">
+                    <div class="container text-center">
+                      <img src="../upload/<?php echo $tour_detail['tour_picture'];?>" class="img-fluid">
                     </div>
                     
                   <?php 
-                    }
+                    //}
                   ?>
           				<!-- </div>
           				<div class="item">

@@ -1,5 +1,12 @@
 <?php
  include "../action/tourAction.php" ;
+
+ if(empty($_SESSION['status']=='A')){
+  session_unset();
+  session_destroy();
+  header('Location: ../login.php');
+  die;
+}
 ?>
 
 <!DOCTYPE html>

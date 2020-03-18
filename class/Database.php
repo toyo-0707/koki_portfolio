@@ -2,8 +2,8 @@
   class Database{
     private $servername = "localhost";
     private $db_username = "root";
-    private $db_password = "";
-    private $database = "koki_portfolio";
+    private $db_password = "root";
+    private $database = "Diving";
     public $conn;
 
     public function __construct(){

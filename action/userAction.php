@@ -16,9 +16,10 @@
     $password = md5($_POST['password']);
 
     $login = $user->login($username, $password);
-
+  
     if($login){
       $_SESSION['login_id'] = $login['user_id'];
+      $_SESSION['status'] = $login['status'];
       
       if($login['status'] == "A"){
         header("Location: ../view/adminhome.php");
