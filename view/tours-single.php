@@ -88,9 +88,15 @@ $tour_detail = $tour->getSpecificTour($tour_id);
                     foreach($tourlist as $tour){
                       $tourID = $tour['tour_id'];
                       $image = $tour['tour_picture'];
-                      ?>
-          					<div class="tour-img"><img src="../upload/<?php echo $tour['tour_picture'];?>"</div>
-                    <?php }?>
+                  ?>
+          					
+                    <div class="container">
+                      <img src="../upload/<?php echo $tour['tour_picture'];?>" class="img-fluid">
+                    </div>
+                    
+                  <?php 
+                    }
+                  ?>
           				<!-- </div>
           				<div class="item">
           					<div class="tour-img" ></div>
