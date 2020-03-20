@@ -1,7 +1,6 @@
 <?php
   require_once '../class/Reservation.php';
   $reservation = new Reservation();
-  session_start();
 
 
   if(isset($_POST['reservation'])){
@@ -14,12 +13,18 @@
     $tour_id = $_POST['tour_id'];
     $user_id = $_SESSION['login_id'];
 
-    // $today = date('Y/m/d') ;
-    // if($reservation_day <= $today ){
-    //   echo "Error";
-    // }
+    $today = date('Y-m-d');
+    // echo $today;
+    // echo $reservation_day;
+    if($reservation_day <= $today ){
+      echo "<div class='alert alert-danger text-center' role='alert'>
+       <strong>RESERVATION DATE HAS PASSED</strong>
+      </div>";
+    }else{
+      echo "Good";
+    }
 
-    $reservation->createReservation($reservation_day, $reservation_name, $reservation_email, $reservation_phone, $reservation_address, $reservation_rental, $tour_id, $user_id);
+    // $reservation->createReservation($reservation_day, $reservation_name, $reservation_email, $reservation_phone, $reservation_address, $reservation_rental, $tour_id, $user_id);
 
    
   }

@@ -24,7 +24,8 @@
       if($login['status'] == "A"){
         header("Location: ../view/adminhome.php");
       }elseif($login['status'] == "U"){
-        header("Location: ../view/home.php");
+        // header("Location: ../view/home.php");
+        echo "<script>window.location='../view/home.php';</script>";
       }
      
     }else{

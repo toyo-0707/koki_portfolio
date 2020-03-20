@@ -1,11 +1,10 @@
 <?php
- include "../action/tourAction.php" ;
+  include "../action/tourAction.php";
+  session_start();
 
- $tour_id = $_GET['tour_id'];
+  $tour_id = $_GET['tour_id'];
 
-$tour_detail = $tour->getSpecificTour($tour_id);
-
-
+  $tour_detail = $tour->getSpecificTour($tour_id);
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +128,7 @@ $tour_detail = $tour->getSpecificTour($tour_id);
     <h2 class="text-center">RESERVATION</h2>
     <h2 class="text-center"><?php echo $tour_detail['tour_name'];?></h2>
     <h2 class="text-center"><?php echo $tour_detail['tour_price'];?></h2>
-      <form action="../action/reservationAction.php" method="post">
+      <form action="" method="post">
         <div class="form-row">
           <div class="form-group col-12 mt-3">
             <input type="date" name="reservation_day" id="" class="p-4 form-control" placeholder="MM/DD/YY" required>
@@ -175,6 +174,9 @@ $tour_detail = $tour->getSpecificTour($tour_id);
           </div>
         </div>
       </form>
+      <?php
+        include "../action/reservationAction.php";
+      ?>
   </div>
 
   
