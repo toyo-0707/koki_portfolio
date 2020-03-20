@@ -7,8 +7,8 @@
  $reservate_lists = $reservation->getReservations();
 //  $tour_lists =$tour->getTours();
 
- 
-if(empty($_SESSION['status']=='A')){ 
+
+if(empty($_SESSION['status']=='A')){
  session_unset();
  session_destroy();
  header('Location: ../login.php');
@@ -19,16 +19,16 @@ if(empty($_SESSION['status']=='A')){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Diving Infomation</title>
+    <title>Diving Tour</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -40,7 +40,7 @@ if(empty($_SESSION['status']=='A')){
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -79,7 +79,7 @@ if(empty($_SESSION['status']=='A')){
       </div>
     </div>
 
-<!-- 
+<!--
     <section class="ftco-section">
       <div class="container">
         <div class="row">
@@ -100,7 +100,7 @@ if(empty($_SESSION['status']=='A')){
           			</div>
               </div>
               </div>
-          </div>  .col-md-8 
+          </div>  .col-md-8
         </div>
       </div>
     </section>  -->
@@ -111,11 +111,11 @@ if(empty($_SESSION['status']=='A')){
        <div class="card-body">
          <div class="ftco-section  bg-light text-center">
           <h2 class="mb-5">RESERVATE LIST </h2>
-           
+
           <?php
 
             if($reservate_lists){
-            foreach($reservate_lists as $lists){ 
+            foreach($reservate_lists as $lists){
               ?>
             <table class="table table-striped table-hover w-75 mx-auto mt-4">
 
@@ -152,22 +152,22 @@ if(empty($_SESSION['status']=='A')){
               <th>Rental: </th>
               <td><h5><?php echo $lists['reservation_rental']?></h3></td>
             </tr>
-            </tbody>         
+            </tbody>
           </table>
-          
-            <?php 
+
+            <?php
             }
           }else{
             echo "<tr>
               <td>NO RECORDS FOUND</td>
             </tr>";
-          }?>       
-         </div>  
+          }?>
+         </div>
        </div>
       </div>
      </div>
     </div>
-  
+
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row">
@@ -200,6 +200,6 @@ if(empty($_SESSION['status']=='A')){
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>

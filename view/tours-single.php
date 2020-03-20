@@ -10,16 +10,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Diving Infomation</title>
+    <title>Diving Tour</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -87,13 +87,13 @@
                     //foreach($tourlist as $tour){
                     //  $tourID = $tour['tour_id'];
                    //   $image = $tour['tour_picture'];
-                  ?> 
-          					
+                  ?>
+
                     <div class="container text-center">
                       <img src="../upload/<?php echo $tour_detail['tour_picture'];?>" class="img-fluid">
                     </div>
-                    
-                  <?php 
+
+                  <?php
                     //}
                   ?>
           				<!-- </div>
@@ -105,11 +105,11 @@
           				</div>
           			</div> -->
               </div>
-              </div>        
+              </div>
           </div> <!-- .col-md-8 -->
         </div>
       </div>
-    </section> 
+    </section>
 
     <div class="container">
      <div class="row ">
@@ -118,12 +118,12 @@
          <div class="ftco-section  bg-light text-center">
           <h2 class="mb-5">Infomation</h2>
           <h2 class="mb-4  w-50  mx-auto"><?php echo $tour_detail['tour_info'];?></h2>
-         </div>  
+         </div>
        </div>
       </div>
      </div>
     </div>
-   
+
   <div class="col-md-12 tour-single mt-4 mb-5 ftco-animate w-50 mx-auto">
     <h2 class="text-center">RESERVATION</h2>
     <h2 class="text-center"><?php echo $tour_detail['tour_name'];?></h2>
@@ -132,7 +132,7 @@
         <div class="form-row">
           <div class="form-group col-12 mt-3">
             <input type="date" name="reservation_day" id="" class="p-4 form-control" placeholder="MM/DD/YY" required>
-          </div>  
+          </div>
         </div>
         <div class="form-row">
           <div class="form-group col-12 mt-3">
@@ -179,7 +179,7 @@
       ?>
   </div>
 
-  
+
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row">
@@ -191,8 +191,8 @@
         </div>
       </div>
     </footer>
-    
-  
+
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -215,6 +215,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>
