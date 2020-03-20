@@ -80,21 +80,5 @@
       }
     }
 
-    // public function displayTodayReservation(){
-    //   $date_today('m/d/y');
-    //   $sql = "SELECT * FROM 'reservations' INNERJOIN users.user_id = reservations.reservation_id WHERE reservation_day = '$date_today'";
-    //   $result->conn->query($sql);
-
-    //   $rows =array();
-    //   if($result->num_rows > 0){
-    //     while($row = $result->fetch_assoc()){
-    //       $rows[]=$row;
-    //     }
-    //     return $rows;
-    //   } else {
-    //     die("Error" .$this->conn->error);
-    //   }
-
-    //}
     
     }

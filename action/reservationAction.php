@@ -14,5 +14,12 @@
     $tour_id = $_POST['tour_id'];
     $user_id = $_SESSION['login_id'];
 
+    // $today = date('Y/m/d') ;
+    // if($reservation_day <= $today ){
+    //   echo "Error";
+    // }
+
     $reservation->createReservation($reservation_day, $reservation_name, $reservation_email, $reservation_phone, $reservation_address, $reservation_rental, $tour_id, $user_id);
+
+   
   }
