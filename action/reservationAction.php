@@ -21,10 +21,11 @@
        <strong>RESERVATION DATE HAS PASSED</strong>
       </div>";
     }else{
-      echo "Good";
+      // echo "Good";
+       $reservation->createReservation($reservation_day, $reservation_name, $reservation_email, $reservation_phone, $reservation_address, $reservation_rental, $tour_id, $user_id);
     }
 
-    // $reservation->createReservation($reservation_day, $reservation_name, $reservation_email, $reservation_phone, $reservation_address, $reservation_rental, $tour_id, $user_id);
+    
 
    
   }

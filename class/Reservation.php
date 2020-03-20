@@ -18,7 +18,8 @@
              $reservationID = $tour['reservation_id'];
            }
 
-           header("Location: ../view/tourComplete.php?tour_id=$tourID&reservation_id=$reservationID");
+           //header("Location: ../view/tourComplete.php?tour_id=$tourID&reservation_id=$reservationID");
+           echo "<script>window.location='../view/tourComplete.php?tour_id=$tourID&reservation_id=$reservationID';</script>";
          }else{
            echo "Error In Selecting: ".$this->conn->error;
          }

@@ -1,5 +1,6 @@
 <?php
  include "../action/reservationAction.php" ;
+ session_start();
 
  $user_id = $_SESSION['login_id'];
 

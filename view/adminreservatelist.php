@@ -2,6 +2,8 @@
  include "../action/reservationAction.php" ;
  include "../action/tourAction.php" ;
 
+ session_start();
+
  $reservate_lists = $reservation->getReservations();
 //  $tour_lists =$tour->getTours();
 
